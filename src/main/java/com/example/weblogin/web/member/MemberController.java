@@ -1,5 +1,6 @@
 package com.example.weblogin.web.member;
 
+import com.example.weblogin.domain.member.JoinService;
 import com.example.weblogin.domain.member.Member;
 import com.example.weblogin.domain.member.MemberRepository;
 import jakarta.validation.Valid;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/members")
 public class MemberController {
 
-    private final MemberRepository memberRepository;
+    private final JoinService joinService;
 
     @GetMapping("/add")
     public String addForm(@ModelAttribute Member member){
@@ -29,7 +30,7 @@ public class MemberController {
             return "members/addMemberForm";
         }
 
-        memberRepository.save(member);
+        joinService.join(member);
         return "redirect:/";
     }
 

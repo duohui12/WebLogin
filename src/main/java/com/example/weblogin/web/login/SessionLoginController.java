@@ -18,7 +18,7 @@ public class SessionLoginController {
     private final LoginService loginService;
     private final SessionManager sessionManager;
 
-    @PostMapping("/sessionLogin")
+    @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletResponse response){
         if (bindingResult.hasErrors()) {
@@ -32,7 +32,6 @@ public class SessionLoginController {
             return "login/loginForm";
         }
 
-        //로그인 성공 -> 세션키 쿠키에 발급 -> home으로 리다이렉트
         sessionManager.createSession(loginMember, response);
         return "redirect:/";
     }
