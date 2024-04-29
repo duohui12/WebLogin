@@ -8,7 +8,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -19,12 +18,7 @@ public class SessionLoginController {
     private final LoginService loginService;
     private final SessionManager sessionManager;
 
-    @GetMapping("/login")
-    public String loginForm(@ModelAttribute LoginForm loginForm){
-        return "login/loginForm";
-    }
-
-    @PostMapping("/login")
+    @PostMapping("/sessionLogin")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletResponse response){
         if (bindingResult.hasErrors()) {

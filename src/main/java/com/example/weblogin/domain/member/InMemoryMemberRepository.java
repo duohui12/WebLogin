@@ -1,10 +1,14 @@
 package com.example.weblogin.domain.member;
 
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+
+@Slf4j
 @Repository
 public class InMemoryMemberRepository implements MemberRepository{
 
@@ -15,6 +19,9 @@ public class InMemoryMemberRepository implements MemberRepository{
     public Member save(Member member) {
         member.setId(++sequence);
         store.put(member.getId(),member);
+
+        log.info("memberList={}",findAll());
+
         return member;
     }
 
