@@ -6,11 +6,13 @@ import com.example.weblogin.web.session.SessionManager;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class SessionLoginController {
@@ -21,6 +23,7 @@ public class SessionLoginController {
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletResponse response){
+
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
@@ -32,8 +35,10 @@ public class SessionLoginController {
             return "login/loginForm";
         }
 
-        sessionManager.createSession(loginMember, response);
+        sessionManager.createSession(loginMember,response);
         return "redirect:/";
     }
+
+
 
 }

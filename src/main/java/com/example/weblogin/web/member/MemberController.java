@@ -2,7 +2,6 @@ package com.example.weblogin.web.member;
 
 import com.example.weblogin.domain.member.JoinService;
 import com.example.weblogin.domain.member.Member;
-import com.example.weblogin.domain.member.MemberRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
