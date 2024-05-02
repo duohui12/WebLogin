@@ -1,11 +1,12 @@
 package com.example.weblogin.domain.session;
 
+import com.example.weblogin.domain.session.SessionRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class InMemorySessionRepository implements SessionRepository{
+public class InMemorySessionRepository implements SessionRepository {
 
     private Map<String,Object> sessionStore = new ConcurrentHashMap<>();
 

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 
-@WebMvcTest(SessionLoginController.class)
+@WebMvcTest(LoginV1Controller.class)
 class SessionLoginControllerTest {
 
     @Autowired
@@ -65,6 +65,7 @@ class SessionLoginControllerTest {
 
         //TODO : reseponse sessionId 담은 쿠키 셋팅하는 방법 어떻게 테스트하는지 찾아봐야함..
     }
+
 
 
 }

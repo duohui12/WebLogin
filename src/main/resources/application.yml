@@ -3,3 +3,8 @@ spring:
     active: dev
     include: secret
 
+server:
+  servlet:
+    session:
+      timeout: 60
+      tracking-modes: cookie
