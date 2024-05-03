@@ -1,11 +1,11 @@
-package com.example.weblogin.domain.member;
+package com.example.weblogin.application.port;
+
+import com.example.weblogin.domain.Member;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository {
-
-    public Member save(Member member);
+public interface FindMemberPort {
 
     public Optional<Member> findById(Long id);
 

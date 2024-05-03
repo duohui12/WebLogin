@@ -1,9 +1,13 @@
-package com.example.weblogin.web.login;
+package com.example.weblogin.adapter.web.v2;
 
-import com.example.weblogin.domain.login.LoginService;
-import com.example.weblogin.domain.member.Member;
-import com.example.weblogin.web.session.SessionConst;
-import com.example.weblogin.web.session.SessionManager;
+import com.example.weblogin.adapter.web.LoginForm;
+import com.example.weblogin.application.LoginService;
+import com.example.weblogin.application.usecase.LoginUseCase;
+import com.example.weblogin.application.usecase.SessionUseCase;
+import com.example.weblogin.domain.Member;
+import com.example.weblogin.SessionConst;
+import com.example.weblogin.application.SessionService;
+import com.example.weblogin.util.DtoToDomain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -19,8 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class LoginV2Controller {
 
-    private final LoginService loginService;
-    private final SessionManager sessionManager;
+    private final LoginUseCase loginUseCase;
 
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
@@ -30,7 +33,7 @@ public class LoginV2Controller {
             return "login/loginForm";
         }
 
-        Member loginMember = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
+        Member loginMember = loginUseCase.login(DtoToDomain.LoginFormToDomain(loginForm));
 
         if (loginMember == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");

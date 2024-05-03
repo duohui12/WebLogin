@@ -1,0 +1,20 @@
+package com.example.weblogin.adapter.persistence;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Builder
+public class MemberEntity {
+
+    private Long id;
+
+    private String loginId; //로그인 ID
+
+    private String name; //사용자 이름
+
+    private String password;
+
+}

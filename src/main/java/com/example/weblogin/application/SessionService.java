@@ -1,9 +1,11 @@
-package com.example.weblogin.web.session;
+package com.example.weblogin.application;
 
-import com.example.weblogin.domain.session.SessionRepository;
+import com.example.weblogin.application.port.SessionPort;
+import com.example.weblogin.application.usecase.SessionUseCase;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.websocket.Session;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +17,10 @@ import java.util.UUID;
  */
 @Component
 @RequiredArgsConstructor
-public class SessionManager {
+public class SessionService implements SessionUseCase {
 
     public static final String SESSION_COOKIE_NAME = "mySessionId";
-    private final SessionRepository sessionRepository;
+    private final SessionPort sessionPort;
 
     /**
      * 세션 생성
@@ -26,7 +28,7 @@ public class SessionManager {
     public void createSession(Object value, HttpServletResponse response) {
 
         String mySessionId = UUID.randomUUID().toString();
-        sessionRepository.createSession(mySessionId,value);
+        sessionPort.createSession(mySessionId,value);
 
         Cookie myCookie = new Cookie(SESSION_COOKIE_NAME,mySessionId);
         response.addCookie(myCookie);
@@ -39,7 +41,7 @@ public class SessionManager {
         Cookie cookie = findCookie(request);
         if(cookie == null) return null;
 
-        return sessionRepository.getSession(cookie.getValue());
+        return sessionPort.getSession(cookie.getValue());
     }
 
     /**
@@ -47,7 +49,7 @@ public class SessionManager {
      */
     public void expire(HttpServletRequest request) {
         Cookie cookie = findCookie(request);
-        if(cookie != null) sessionRepository.removeSession(cookie.getValue());
+        if(cookie != null) sessionPort.removeSession(cookie.getValue());
     }
 
     private Cookie findCookie(HttpServletRequest request){

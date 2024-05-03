@@ -1,4 +1,4 @@
-package com.example.weblogin.web.Exception;
+package com.example.weblogin.Exception;
 
 public class LoginFailException extends RuntimeException{
     public LoginFailException(String email){

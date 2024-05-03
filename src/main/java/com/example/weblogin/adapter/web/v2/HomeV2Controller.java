@@ -1,8 +1,7 @@
-package com.example.weblogin;
+package com.example.weblogin.adapter.web.v2;
 
-import com.example.weblogin.domain.member.Member;
-import com.example.weblogin.web.session.SessionConst;
-import com.example.weblogin.web.session.SessionManager;
+import com.example.weblogin.domain.Member;
+import com.example.weblogin.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;

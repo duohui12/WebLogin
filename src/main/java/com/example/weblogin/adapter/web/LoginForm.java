@@ -1,4 +1,4 @@
-package com.example.weblogin.web.login;
+package com.example.weblogin.adapter.web;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;

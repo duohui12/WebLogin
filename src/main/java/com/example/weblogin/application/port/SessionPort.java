@@ -1,6 +1,6 @@
-package com.example.weblogin.domain.session;
+package com.example.weblogin.application.port;
 
-public interface SessionRepository {
+public interface SessionPort {
 
     public void createSession(String key, Object value);
 

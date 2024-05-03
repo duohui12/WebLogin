@@ -1,4 +1,4 @@
-package com.example.weblogin.web.session;
+package com.example.weblogin;
 
 //public interface SessionConst
 //public abstract class SessionConst
