@@ -5,8 +5,9 @@ import com.example.weblogin.adapter.web.LoginForm;
 import com.example.weblogin.domain.LoginAccount;
 import com.example.weblogin.domain.Member;
 
-public class DtoToDomain {
+public abstract class DtoToDomain {
     public static LoginAccount LoginFormToDomain(LoginForm loginForm){
+
         return LoginAccount.builder()
                 .loginId(loginForm.getLoginId())
                 .password(loginForm.getPassword())

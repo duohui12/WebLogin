@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class InMemorySessionRepository implements SessionPort {
+class InMemorySessionRepository implements SessionPort {
 
     private Map<String,Object> sessionStore = new ConcurrentHashMap<>();
 

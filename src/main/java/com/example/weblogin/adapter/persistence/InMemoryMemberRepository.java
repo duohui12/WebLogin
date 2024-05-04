@@ -5,7 +5,6 @@ import com.example.weblogin.application.port.SaveMemberPort;
 import com.example.weblogin.domain.Member;
 import com.example.weblogin.util.DomainToEntity;
 import com.example.weblogin.util.EntityToDomain;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -15,9 +14,8 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Repository
-public class InMemoryMemberRepository implements SaveMemberPort
+class InMemoryMemberRepository implements SaveMemberPort
                                                 , FindMemberPort {
 
     private static Map<Long, MemberEntity> store = new ConcurrentHashMap<>();

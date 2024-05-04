@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeV2Controller {
 
-    @GetMapping("/")
+    //@GetMapping("/")
     public String home(HttpServletRequest request, Model model){
 
         //세션찾기 / false: session이 없을 경우 null반환, true: session이 없을 경우 새로운 세션 생성해서 반환

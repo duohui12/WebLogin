@@ -1,12 +1,9 @@
 package com.example.weblogin.adapter.web.v2;
 
-import com.example.weblogin.adapter.web.LoginForm;
-import com.example.weblogin.application.LoginService;
-import com.example.weblogin.application.usecase.LoginUseCase;
-import com.example.weblogin.application.usecase.SessionUseCase;
-import com.example.weblogin.domain.Member;
 import com.example.weblogin.SessionConst;
-import com.example.weblogin.application.SessionService;
+import com.example.weblogin.adapter.web.LoginForm;
+import com.example.weblogin.application.usecase.LoginUseCase;
+import com.example.weblogin.domain.Member;
 import com.example.weblogin.util.DtoToDomain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -25,7 +22,7 @@ public class LoginV2Controller {
 
     private final LoginUseCase loginUseCase;
 
-    @PostMapping("/login")
+    //@PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletRequest request){
 
@@ -51,7 +48,7 @@ public class LoginV2Controller {
     }
 
 
-    @PostMapping("/logout")
+    //@PostMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if(session != null){

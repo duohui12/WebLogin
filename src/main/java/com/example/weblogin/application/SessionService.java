@@ -17,7 +17,7 @@ import java.util.UUID;
  */
 @Component
 @RequiredArgsConstructor
-public class SessionService implements SessionUseCase {
+class SessionService implements SessionUseCase {
 
     public static final String SESSION_COOKIE_NAME = "mySessionId";
     private final SessionPort sessionPort;

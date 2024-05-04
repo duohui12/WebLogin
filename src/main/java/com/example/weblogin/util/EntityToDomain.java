@@ -3,7 +3,7 @@ package com.example.weblogin.util;
 import com.example.weblogin.adapter.persistence.MemberEntity;
 import com.example.weblogin.domain.Member;
 
-public class EntityToDomain {
+public abstract class EntityToDomain {
     public static Member MemberEntityToDomain(MemberEntity memberEntity){
         return Member.builder()
                 .id(memberEntity.getId())

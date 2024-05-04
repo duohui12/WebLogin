@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class JoinService implements JoinUseCase {
+class JoinService implements JoinUseCase {
 
     private final FindMemberPort findMemberPort;
     private final SaveMemberPort saveMemberPort;

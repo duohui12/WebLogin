@@ -5,7 +5,7 @@ import com.example.weblogin.adapter.web.LoginForm;
 import com.example.weblogin.domain.LoginAccount;
 import com.example.weblogin.domain.Member;
 
-public class DomainToEntity {
+public abstract class DomainToEntity {
 
     public static MemberEntity MemberToEntity(Member member){
         return MemberEntity.builder()
