@@ -5,6 +5,8 @@ import com.example.weblogin.domain.Member;
 
 public abstract class EntityToDomain {
     public static Member MemberEntityToDomain(MemberEntity memberEntity){
+        if(memberEntity == null) return null;
+
         return Member.builder()
                 .id(memberEntity.getId())
                 .loginId(memberEntity.getLoginId())

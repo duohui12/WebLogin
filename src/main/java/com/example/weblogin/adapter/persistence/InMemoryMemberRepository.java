@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Repository
 class InMemoryMemberRepository implements SaveMemberPort
                                                 , FindMemberPort {
-
     private static Map<Long, MemberEntity> store = new ConcurrentHashMap<>();
     private static Long sequence = 0L;
 
@@ -32,16 +31,8 @@ class InMemoryMemberRepository implements SaveMemberPort
 
     @Override
     public Optional<Member> findById(Long id) {
-        //return Optional.ofNullable(store.get(id));
-
         MemberEntity memberEntity = store.get(id);
-
-        if(memberEntity != null){
-            return Optional.of(EntityToDomain.MemberEntityToDomain(memberEntity));
-        }else{
-            return Optional.ofNullable(null);
-        }
-        //TODO : 좀더 간결하게, 테스트
+        return Optional.ofNullable(EntityToDomain.MemberEntityToDomain(memberEntity));
     }
 
     @Override
@@ -58,8 +49,6 @@ class InMemoryMemberRepository implements SaveMemberPort
         return memberEntities.stream()
                 .map( memberEntity -> EntityToDomain.MemberEntityToDomain(memberEntity))
                 .collect(Collectors.toList());
-
-        //TODO: memberEntities가 null일때 테스트
     }
 
     public void clearStore(){

@@ -7,6 +7,7 @@ import com.example.weblogin.domain.Member;
 
 public abstract class DtoToDomain {
     public static LoginAccount LoginFormToDomain(LoginForm loginForm){
+        if(loginForm == null) return null;
 
         return LoginAccount.builder()
                 .loginId(loginForm.getLoginId())
@@ -15,6 +16,8 @@ public abstract class DtoToDomain {
     }
 
     public static Member JoinFormToDomain(JoinForm joinForm){
+        if(joinForm == null) return null;
+
         return Member.builder()
                 .loginId(joinForm.getLoginId())
                 .password(joinForm.getPassword())
