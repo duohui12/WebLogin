@@ -15,6 +15,7 @@ class LoginService implements LoginUseCase {
 
     public Member login(LoginAccount loginAccount){
 
+        //TODO : 로그인 실패시 LoginFailException 던지기
         return findMemberPort.findByLoginId(loginAccount.getLoginId())
                 .filter(m -> m.getPassword().equals(loginAccount.getPassword()))
                 .orElse(null);

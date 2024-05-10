@@ -3,7 +3,7 @@ package com.example.weblogin.application;
 import com.example.weblogin.application.port.FindMemberPort;
 import com.example.weblogin.application.usecase.JoinUseCase;
 import com.example.weblogin.domain.Member;
-import com.example.weblogin.Exception.DuplicatedUserEmailException;
+import com.example.weblogin.Exception.DuplicatedIdException;
 import com.example.weblogin.application.port.SaveMemberPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ class JoinService implements JoinUseCase {
     public Member join(Member member){
 
         if(findMemberPort.findByLoginId(member.getLoginId()).isPresent()){
-            throw new DuplicatedUserEmailException(member.getLoginId());
+            throw new DuplicatedIdException(member.getLoginId());
         }
 
         return saveMemberPort.save(member);
