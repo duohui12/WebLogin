@@ -43,7 +43,7 @@ public class AuthenticationService implements AuthenticationUseCase {
     }
 
     @Override
-    public Long getAccessToken(HttpServletRequest request) {
+    public Long getUserIdFromAccessToken(HttpServletRequest request) {
         Cookie cookie = findCookie(request);
         if(cookie == null) return null;
 

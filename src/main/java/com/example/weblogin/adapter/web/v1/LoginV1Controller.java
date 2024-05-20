@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -23,7 +22,7 @@ public class LoginV1Controller {
     private final LoginUseCase loginUseCase;
     private final SessionUseCase sessionUseCase;
 
-    @PostMapping("/login")
+    //@PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm
                             , BindingResult bindingResult
                             , HttpServletResponse response){
@@ -45,7 +44,7 @@ public class LoginV1Controller {
     }
 
 
-    @PostMapping("/logout")
+    //@PostMapping("/logout")
     public String logout(HttpServletRequest request) {
         sessionUseCase.expire(request);
         return "redirect:/";

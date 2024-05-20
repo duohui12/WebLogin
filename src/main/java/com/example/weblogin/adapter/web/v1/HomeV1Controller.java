@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @RequiredArgsConstructor
 @Controller
@@ -14,7 +13,7 @@ public class HomeV1Controller {
 
     private final SessionUseCase sessionUseCase;
 
-    @GetMapping("/")
+    //@GetMapping("/")
     public String home(HttpServletRequest request, Model model){
 
         //세션에 저장된 회원정보 조회

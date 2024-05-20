@@ -1,13 +1,12 @@
 package com.example.weblogin.adapter.web.v2;
 
-import com.example.weblogin.domain.Member;
 import com.example.weblogin.SessionConst;
+import com.example.weblogin.domain.Member;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @RequiredArgsConstructor
 @Controller

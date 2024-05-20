@@ -12,5 +12,5 @@ public interface AuthenticationUseCase {
 
     public void setCookie(String accessToken, HttpServletResponse response);
 
-    public Long getAccessToken(HttpServletRequest request);
+    public Long getUserIdFromAccessToken(HttpServletRequest request);
 }

@@ -1,5 +1,6 @@
 package com.example.weblogin.application;
 
+import com.example.weblogin.Exception.LoginFailException;
 import com.example.weblogin.application.port.FindMemberPort;
 import com.example.weblogin.application.usecase.LoginUseCase;
 import com.example.weblogin.domain.LoginAccount;
@@ -15,10 +16,9 @@ class LoginService implements LoginUseCase {
 
     public Member login(LoginAccount loginAccount){
 
-        //TODO : 로그인 실패시 LoginFailException 던지기
         return findMemberPort.findByLoginId(loginAccount.getLoginId())
                 .filter(m -> m.getPassword().equals(loginAccount.getPassword()))
-                .orElse(null);
+                .orElseThrow(() -> new LoginFailException(loginAccount.getLoginId()));
     }
 
 }

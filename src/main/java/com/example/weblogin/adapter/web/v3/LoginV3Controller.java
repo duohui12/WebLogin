@@ -1,21 +1,17 @@
 package com.example.weblogin.adapter.web.v3;
 
-import com.example.weblogin.SessionConst;
 import com.example.weblogin.adapter.web.LoginForm;
 import com.example.weblogin.application.usecase.AuthenticationUseCase;
-import com.example.weblogin.application.usecase.LoginUseCase;
-import com.example.weblogin.domain.Member;
 import com.example.weblogin.util.DtoToDomain;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -24,7 +20,7 @@ public class LoginV3Controller {
 
     private final AuthenticationUseCase authenticationUseCase;
 
-    //@PostMapping("/login")
+    @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletRequest request
                             , HttpServletResponse response){

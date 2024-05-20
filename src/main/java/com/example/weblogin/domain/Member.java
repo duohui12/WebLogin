@@ -16,5 +16,15 @@ public class Member {
     private String name; //사용자 이름
 
     private String password;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", loginId='" + loginId + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
 
