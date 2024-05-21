@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -23,7 +24,8 @@ public class LoginV3Controller {
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult bindingResult
                             , HttpServletRequest request
-                            , HttpServletResponse response){
+                            , HttpServletResponse response
+                            , @RequestParam(defaultValue = "/") String redirectURL){
 
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
@@ -33,7 +35,7 @@ public class LoginV3Controller {
         String accessToken = authenticationUseCase.login(DtoToDomain.LoginFormToDomain(loginForm));
         authenticationUseCase.setCookie(accessToken,response);
 
-        return "redirect:/";
+        return "redirect:" + redirectURL;
     }
 
 

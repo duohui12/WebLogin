@@ -1,6 +1,6 @@
 package com.example.weblogin.application;
 
-import com.example.weblogin.Exception.LoginFailException;
+import com.example.weblogin.exception.LoginFailException;
 import com.example.weblogin.application.port.FindMemberPort;
 import com.example.weblogin.application.usecase.AuthenticationUseCase;
 import com.example.weblogin.domain.LoginAccount;
@@ -11,7 +11,6 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.startup.CredentialHandlerRuleSet;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

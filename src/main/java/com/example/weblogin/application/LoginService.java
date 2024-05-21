@@ -1,6 +1,6 @@
 package com.example.weblogin.application;
 
-import com.example.weblogin.Exception.LoginFailException;
+import com.example.weblogin.exception.LoginFailException;
 import com.example.weblogin.application.port.FindMemberPort;
 import com.example.weblogin.application.usecase.LoginUseCase;
 import com.example.weblogin.domain.LoginAccount;

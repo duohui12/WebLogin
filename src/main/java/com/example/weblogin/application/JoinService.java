@@ -3,7 +3,7 @@ package com.example.weblogin.application;
 import com.example.weblogin.application.port.FindMemberPort;
 import com.example.weblogin.application.usecase.JoinUseCase;
 import com.example.weblogin.domain.Member;
-import com.example.weblogin.Exception.DuplicatedIdException;
+import com.example.weblogin.exception.DuplicatedIdException;
 import com.example.weblogin.application.port.SaveMemberPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,5 @@
 package com.example.weblogin.adapter.web.v1;
 
-import com.example.weblogin.Exception.LoginFailException;
 import com.example.weblogin.application.usecase.LoginUseCase;
 import com.example.weblogin.application.usecase.SessionUseCase;
 import com.example.weblogin.domain.LoginAccount;

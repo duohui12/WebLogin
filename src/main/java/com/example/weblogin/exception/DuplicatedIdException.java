@@ -1,4 +1,4 @@
-package com.example.weblogin.Exception;
+package com.example.weblogin.exception;
 
 public class DuplicatedIdException extends RuntimeException{
     public DuplicatedIdException(String loginId){
